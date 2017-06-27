@@ -585,9 +585,9 @@ int main(int argc, char* argv[])
   image_transport::ImageTransport it(nh);
 
 //  image_transport::Subscriber image_sub = it.subscribe("bebop/image_raw", 1, ImageCallback);
-  message_filters::Subscriber<bebop_msgs::Ardrone3PilotingStateAltitudeChanged> bebop_alt_sub(nh, "bebop/states/ARDrone3/PilotingState/AltitudeChanged", 1);
-  message_filters::Subscriber<bebop_msgs::Ardrone3PilotingStateAttitudeChanged> bebop_att_sub(nh, "bebop/states/ARDrone3/PilotingState/AttitudeChanged", 1);
-  message_filters::Subscriber<bebop_msgs::Ardrone3PilotingStateSpeedChanged> bebop_speed_sub(nh, "bebop/states/ARDrone3/PilotingState/SpeedChanged", 1);
+  message_filters::Subscriber<bebop_msgs::Ardrone3PilotingStateAltitudeChanged> bebop_alt_sub(nh, "bebop/states/ardrone3/PilotingState/AltitudeChanged", 1);
+  message_filters::Subscriber<bebop_msgs::Ardrone3PilotingStateAttitudeChanged> bebop_att_sub(nh, "bebop/states/ardrone3/PilotingState/AttitudeChanged", 1);
+  message_filters::Subscriber<bebop_msgs::Ardrone3PilotingStateSpeedChanged> bebop_speed_sub(nh, "bebop/states/ardrone3/PilotingState/SpeedChanged", 1);
 
   message_filters::Subscriber<geometry_msgs::TransformStamped> vicon_target_sub(nh, vicon_target_topic, 1);
   message_filters::Subscriber<geometry_msgs::TransformStamped> vicon_bebop_sub(nh, vicon_bebop_topic, 1);

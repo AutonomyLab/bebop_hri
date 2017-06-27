@@ -4,6 +4,7 @@
   <arg name="compressed" default="false" />
   <arg name="obz_logfile" default="/tmp/obzerver_ros" />
   <arg name="joy_dev" default="/dev/input/js0" />
+  <arg name="drone_type" default="bebop2" /> <!-- available drone types: bebop1, bebop2 -->
 
   <group unless="$(arg is_bag)">
     <rosparam command="load" file="$(find bebop_hri)/config/bebop.yaml" />
@@ -18,7 +19,7 @@
       <rosparam file="$(find bebop_hri)/config/twist_mux_locks.yaml" command="load"/>
     </node>
     <node ns="bebop" pkg="bebop_driver" name="bebop_driver" type="bebop_driver_node" output="log">
-      <param name="camera_info_url" value="package://bebop_driver/data/bebop_camera_calib.yaml" />
+      <param name="camera_info_url" value="package://bebop_driver/data/$(arg drone_type)_camera_calib.yaml"/>
       <param name="bebop_ip" value="192.168.42.1" />
       <rosparam command="load" file="$(find bebop_driver)/config/defaults.yaml" />
     </node>

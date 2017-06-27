@@ -6,7 +6,7 @@
     <arg name="use_cftld" value="true" />
     <arg name="use_vicon" value="true" />
     <arg name="use_human" value="true" />
-    <arg name="obz_logfile" value="/local_home/iros16/indoor/obz" />
+    <arg name="obz_logfile" value="/home/autolab/local_home/iros16/indoor/obz" />
     <arg name="behavior_param_file" value="$(find bebop_hri)/config/behavior_indoor.yaml" />
   </include>
 </launch>

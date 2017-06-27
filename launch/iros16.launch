@@ -11,6 +11,7 @@
   <arg name="use_vicon" default="false" />
   <arg name="use_human" default="true" />
   <arg name="behavior_param_file" default="$(find bebop_hri)/config/behavior.yaml" />
+  <arg name="drone_type" default="bebop2" /> <!-- available drone types: bebop1, bebop2 -->
 
   <group unless="$(arg is_bag)">
     <rosparam command="load" file="$(find bebop_hri)/config/bebop.yaml" />
@@ -20,7 +21,7 @@
       <arg name="teleop_config" value="$(find bebop_hri)/config/log710.yaml" />
     </include>
     <node ns="bebop" pkg="bebop_driver" name="bebop_driver" type="bebop_driver_node" output="$(arg nodelets_output)">
-      <param name="camera_info_url" value="package://bebop_driver/data/bebop_camera_calib.yaml" />
+      <param name="camera_info_url" value="package://bebop_driver/data/$(arg drone_type)_camera_calib.yaml"/>
       <param name="bebop_ip" value="192.168.42.1" />
       <rosparam command="load" file="$(find bebop_driver)/config/defaults.yaml" />
     </node>

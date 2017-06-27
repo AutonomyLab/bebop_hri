@@ -2,6 +2,7 @@
 <launch>
   <arg name="joy_dev" default="/dev/input/js0" />
   <arg name="plan_file" default="$(find bebop_hri)/config/vel_exp_plan_6.yaml" />
+  <arg name="drone_type" default="bebop2" /> <!-- available drone types: bebop1, bebop2     -->
   <!--arg name="plan_file" default="$(find bebop_hri)/config/vel_exp_plan_2.yaml" /-->
   <!--arg name="plan_file" default="$(find bebop_hri)/config/vel_exp_plan_3.yaml" /-->
 
@@ -13,7 +14,7 @@
   </include>
 
   <node ns="bebop" pkg="bebop_driver" name="bebop_driver" type="bebop_driver_node" output="screen">
-    <param name="camera_info_url" value="package://bebop_driver/data/bebop_camera_calib.yaml" />
+    <param name="camera_info_url" value="package://bebop_driver/data/$(arg drone_type)_camera_calib.yaml"/>
     <param name="bebop_ip" value="192.168.42.1" />
     <rosparam command="load" file="$(find bebop_driver)/config/defaults.yaml" />
   </node>
